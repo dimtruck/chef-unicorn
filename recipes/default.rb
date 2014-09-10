@@ -10,7 +10,7 @@ node['unicorn']['installs'].each do |install|
     node.default[install[k]] = node['unicorn'][k]
   end
   %w(generate path stderr_path stdout_path listen working_directory worker_timeout preload_app worker_processes before_exec before_fork after_fork).each do |k|
-    node.default[install['config'][k]] = node['unicorn']['config'][k]
+    node.default[install['config'][k]] = node['unicorn']['config'][k] if node.default[install['config']]
   end
 
   # Create the init.d script
