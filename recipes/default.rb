@@ -2,8 +2,8 @@ node['unicorn']['installs'].each do |install|
 
   # Since a lot of defaults rely on app_root, set it and reload defeaults
   node.set['unicorn']['app_root'] = install['app_root']
-  node.load_attribute_by_short_filename('default', 'unicorn')
-
+  include_recipe 'unicorn::default'
+  
   # Apply the defaults for each unicorn install
   install['config'] ||= {}
   %w(rack_env user group pid service command).each do |k|
