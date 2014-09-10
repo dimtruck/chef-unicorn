@@ -1,3 +1,4 @@
+name             'unicorn'
 maintainer       'Danial Pearce'
 maintainer_email 'danial@tigris.id.au'
 license          'MIT'
